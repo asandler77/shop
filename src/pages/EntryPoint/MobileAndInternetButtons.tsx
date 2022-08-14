@@ -1,13 +1,27 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {SCREEN_HEIGHT} from '../../constants/Constants';
 import {COLORS} from '../../constants/Colors';
-import {FontSize, LineHeight, Spacing} from '../../constants/UiSize';
+import {LineHeight, Spacing} from '../../constants/UiSize';
+import {useAppDispatch, useAppSelector} from '../../hooks/redux';
+import {fetchShopData} from '../../store/reducers/ActionCreators';
+import { useNavigation } from '@react-navigation/native';
 
-export const MobileAndInternet = () => {
+export const MobileAndInternetButtons = ({navigation}) => {
+  const dispatch = useAppDispatch();
+  const {shopData, isLoading, error} = useAppSelector(state => state.shop);
+
+  console.log('shopData,,', shopData, isLoading, error);
+
+  const onMobilePress = () => {
+    console.log('thunk');
+    dispatch(fetchShopData());
+
+    navigation.navigate('MobileDetails');
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={onMobilePress}>
         <Text style={styles.text}>Mobile</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
@@ -20,7 +34,7 @@ export const MobileAndInternet = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
     color: COLORS.WHITE,

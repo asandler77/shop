@@ -1,8 +1,12 @@
 export interface SignInObj {
-    mail: string;
-    password: string;
+  mail: string;
+  password: string;
 }
 
 export interface ShopData {
-    name: string,
+  phonesAndDevices: {
+    title: string;
+    description: string;
+    image: string;
+  };
 }

@@ -9,7 +9,7 @@ interface ShopState {
 }
 
 const initialState: ShopState = {
-  shopData: [{name: 'Alexey-totach'}],
+  shopData: [],
   isLoading: true,
   error: '',
 };

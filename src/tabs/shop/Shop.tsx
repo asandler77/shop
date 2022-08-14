@@ -1,30 +1,18 @@
-import React, {useEffect} from 'react';
-import {Text, View} from 'react-native';
-import {useAppDispatch, useAppSelector} from '../../hooks/redux';
-import {Button} from '../../components/common/Button';
-import {fetchShopData} from '../../store/reducers/ActionCreators';
+import React from 'react';
+import {ImageBackground} from 'react-native';
+import {MobileAndInternetButtons} from '../../pages/EntryPoint/MobileAndInternetButtons';
+import {TitleSection} from '../../pages/EntryPoint/TitleSection';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ShopDetails} from '../../pages/shopDetails/ShopDetails';
+import {MobileDetails} from "../../pages/mobile/MobileDetails";
+
+const ButtonStack = createNativeStackNavigator();
 
 export const Shop = () => {
-  const dispatch = useAppDispatch();
-  const {shopData, isLoading, error} = useAppSelector(state => state.shop);
-
-  console.log('shopData,,', shopData, isLoading, error);
-  useEffect(() => {
-    dispatch(fetchShopData());
-  }, []);
-
   return (
-    <View>
-      <Text>shoooop</Text>
-      {/*<Button btnLabel={'button'} onPress={onPress} />*/}
-    </View>
-    // <ImageBackground
-    //   style={{flex: 1}}
-    //   source={require('../../assets/icons/planet.png')}
-    //   resizeMode={'cover'}
-    // >
-    //   {/*<TitleSection />*/}
-    //   {/*<MobileAndInternet />*/}
-    // </ImageBackground>
+    <ButtonStack.Navigator>
+      <ButtonStack.Screen name={'ShopDetails'} component={ShopDetails} />
+      <ButtonStack.Screen name={'MobileDetails'} component={MobileDetails} />
+    </ButtonStack.Navigator>
   );
 };

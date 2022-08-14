@@ -1,8 +1,11 @@
 {
   "shops": [
-    { "name": "Alexey-1" },
-    { "name": "Alexey-2" },
-    { "name": "Alexey-3" },
-    { "name": "Alexey-4" }
+    {
+      "phonesAndDevices": {
+        "title": "Phones & Devices",
+        "description": "Browse the latest devices and upgrade!",
+        "image": "phone.png"
+      }
+    }
   ]
 }

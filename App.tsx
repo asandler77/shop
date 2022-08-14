@@ -1,16 +1,21 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {appTheme} from './constants/Colors';
-import {AppNavigator} from './navigation/AppNavigator';
+import {AppNavigator} from './src/navigation/AppNavigator';
+import {appTheme} from './src/constants/Colors';
+import {Provider} from 'react-redux';
+import {store} from './src/store/store';
+
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer theme={appTheme}>
-        <AppNavigator />
-      </NavigationContainer>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={{flex: 1}}>
+        <NavigationContainer theme={appTheme}>
+          <AppNavigator />
+        </NavigationContainer>
+      </SafeAreaView>
+    </Provider>
   );
 };
 

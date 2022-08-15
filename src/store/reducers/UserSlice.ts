@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchShopData.fulfilled.type]: (
+    [fetchShopData.fulfilled]: (
         state,
         action: PayloadAction<ShopData>,
     ) => {
@@ -39,11 +39,11 @@ export const userSlice = createSlice({
       state.error = '';
       state.shopData = action.payload;
     },
-    [fetchShopData.rejected.type]: (state, action: PayloadAction<ShopData>) => {
+    [fetchShopData.rejected]: (state, action: PayloadAction<ShopData>) => {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchShopData.pending.type]: (state, action: PayloadAction<ShopData>) => {
+    [fetchShopData.pending]: (state, action: PayloadAction<ShopData>) => {
       state.isLoading = true;
     },
   },

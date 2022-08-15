@@ -7,12 +7,9 @@ const Tab = createBottomTabNavigator();
 
 export const EntryPoint = () => {
   return (
-    <Tab.Navigator screenOptions={{headerShown:false}}>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Shop" component={Shop} />
     </Tab.Navigator>
   );
 };
-
-
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {ShopData} from '../types';
 import {
   FontSize,
@@ -24,7 +24,10 @@ export const MobileSection = ({mobileSection}: Props) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-      <Text style={styles.image}>{image}</Text>
+      <Image
+        source={require(`../assets/icons/phone.png`)}
+        style={styles.image}
+      />
     </View>
   );
 };
@@ -37,8 +40,6 @@ const styles = StyleSheet.create({
     minHeight: 200,
   },
   textContainer: {
-    borderColor: 'red',
-    borderWidth: 1,
     justifyContent: 'space-between',
   },
   title: {
@@ -46,20 +47,19 @@ const styles = StyleSheet.create({
     fontSize: FontSize['2XL'],
     marginVertical: Spacing.M,
     letterSpacing: LetterSpacing.S,
-      marginLeft: Spacing.M,
-    borderWidth: 1,
+    marginLeft: Spacing.M,
   },
   description: {
     fontSize: FontSize.S,
     lineHeight: LineHeight.S,
     marginVertical: Spacing.M,
-      marginLeft: Spacing.M,
+    marginLeft: Spacing.M,
     letterSpacing: LetterSpacing.S,
-    borderWidth: 1,
   },
   image: {
     margin: Spacing.M,
     // minWidth: 364,
-    borderWidth: 1,
+    width: 130,
+    height: 170,
   },
 });

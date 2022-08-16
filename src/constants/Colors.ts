@@ -20,6 +20,6 @@ export const appTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        background: 'transparent',
+        // background: 'transparent',
     },
 };

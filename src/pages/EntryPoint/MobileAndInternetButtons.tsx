@@ -4,15 +4,16 @@ import {COLORS} from '../../constants/Colors';
 import {LineHeight, Spacing} from '../../constants/UiSize';
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
 import {fetchShopData} from '../../store/reducers/ActionCreators';
-import {useNavigation} from '@react-navigation/native';
 
 export const MobileAndInternetButtons = ({navigation}) => {
   const dispatch = useAppDispatch();
+  // const {shopData, isLoading, error} = useAppSelector(state => state.shop);
+
 
   const onMobilePress = () => {
     dispatch(fetchShopData());
 
-    navigation.navigate('MobileDetails');
+   navigation.navigate('MobileDetails');
   };
 
   return (

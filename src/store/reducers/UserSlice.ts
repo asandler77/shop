@@ -27,14 +27,12 @@ export const userSlice = createSlice({
       state.shopData = action.payload;
     },
     shopDataFetchingError(state, action: PayloadAction<string>) {
-      (state.isLoading = false), (state.error = action.payload);
+      state.isLoading = false;
+      state.error = action.payload;
     },
   },
   extraReducers: {
-    [fetchShopData.fulfilled]: (
-        state,
-        action: PayloadAction<ShopData>,
-    ) => {
+    [fetchShopData.fulfilled]: (state, action: PayloadAction<ShopData>) => {
       state.isLoading = false;
       state.error = '';
       state.shopData = action.payload;

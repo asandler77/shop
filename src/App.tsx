@@ -1,13 +1,10 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {AppNavigator} from './src/navigation/AppNavigator';
-import {appTheme} from './src/constants/Colors';
 import {Provider} from 'react-redux';
-import {store} from './src/store/store';
-import {EntryPoint} from './src/pages/EntryPoint/EntryPoint';
-import {Home} from './src/tabs/home/Home';
-import {AuthNavigator} from "./src/navigation/AuthNavigator";
+import {AppNavigator} from "./navigation/AppNavigator";
+import {appTheme} from "./constants/Colors";
+import {store} from "./store/store";
 
 const App = () => {
   return (

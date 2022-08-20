@@ -1,5 +1,13 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {ShopData} from '../types';
 import {
   FontSize,
@@ -7,19 +15,26 @@ import {
   LineHeight,
   Spacing,
 } from '../constants/UiSize';
+import {WebViewSection} from './WebViewSection';
+import WebView from 'react-native-webview';
 
 interface Props {
   mobileSection: ShopData;
 }
 export const MobileSection = ({mobileSection}: Props) => {
-  console.log('MobileSection component.1..');
-
   const {phonesAndDevices} = mobileSection;
   const {description, image, title} = phonesAndDevices;
-  console.log('MobileSection component...');
+
+  const onPress = () => {
+    console.log('onPress')
+
+    return <WebViewSection />;
+  };
 
   return (
+    // <TouchableWithoutFeedback onPress={onPress}>
     <View style={styles.container}>
+      <TouchableOpacity onPress={onPress} style={styles.touchable} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
@@ -29,6 +44,7 @@ export const MobileSection = ({mobileSection}: Props) => {
         style={styles.image}
       />
     </View>
+    // </TouchableWithoutFeedback>
   );
 };
 
@@ -38,6 +54,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(52, 52, 52, 0.1)',
     flexDirection: 'row',
     minHeight: 200,
+  },
+  touchable: {
+    minHeight: 30,
+    minWidth: 30,
+    backgroundColor: 'red',
   },
   textContainer: {
     justifyContent: 'space-between',
